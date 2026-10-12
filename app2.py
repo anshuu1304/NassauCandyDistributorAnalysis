@@ -13,6 +13,33 @@ div[data-testid="stMetricLabel"] p { color: #64748b !important; font-weight: 600
 div[data-testid="stMetricValue"] div { color: #0f172a !important; font-weight: 800 !important; }
 div[data-testid="stDownloadButton"] button, div[data-testid="stDownloadButton"] button * { background-color: #2563eb !important; color: #ffffff !important; font-weight: 600 !important; border: none !important; }
 div[data-testid="stDownloadButton"] button:hover { background-color: #1d4ed8 !important; }
+
+/* Start and End Date Input styling: White text & placeholder */
+div[data-testid="stDateInput"] div[data-baseweb="input"],
+div[data-testid="stDateInput"] div[data-baseweb="base-input"] {
+    background-color: #1e293b !important;
+    border-radius: 8px !important;
+    border: 1px solid #475569 !important;
+}
+div[data-testid="stDateInput"] input,
+div[data-testid="stDateInput"] div[data-baseweb="input"] *,
+div[data-testid="stDateInput"] input[type="text"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background-color: transparent !important;
+}
+div[data-testid="stDateInput"] input::placeholder,
+div[data-testid="stDateInput"] input::-webkit-input-placeholder,
+div[data-testid="stDateInput"] input::-moz-placeholder,
+div[data-testid="stDateInput"] input:-ms-input-placeholder {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    opacity: 0.9 !important;
+}
+div[data-testid="stDateInput"] svg {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+}
 </style>""", unsafe_allow_html=True)
 
 st.title("🚚 Nassau Candy Distributor")
