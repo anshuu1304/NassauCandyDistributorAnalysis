@@ -1,0 +1,39 @@
+# Executive Summary
+## Factory-to-Customer Shipping Route Efficiency Analysis for Nassau Candy Distributor
+
+### Project Overview
+
+This project analyzes factory-to-customer shipping routes for Nassau Candy Distributor to understand shipping performance across customer states, regions, and shipping modes. The objective is to provide a structured, data-driven view of shipment duration, route performance, and potential geographic bottlenecks.
+
+### Objectives
+
+- Calculate shipment lead times.
+- Analyze route-level shipment volumes and average lead times.
+- Compare shipping performance by region and shipping mode.
+- Identify relatively faster and slower routes.
+- Develop an interactive dashboard for exploring shipment data.
+
+### Approach and Tools
+
+The project uses Python and Pandas for data processing and feature engineering, Plotly for interactive visualizations, and Streamlit for the dashboard. Product-to-factory mappings are used to construct factory-to-customer routes. The dashboard provides key performance indicators, route comparisons, filters, route drill-down, and filtered-data export.
+
+### Key Analytical Results
+
+The processed dataset contains 10,194 shipment records and 196 distinct factory-to-customer state routes. Using a provisional threshold of 1,274 days, 4,302 records, approximately 42.2%, were classified as delayed.
+
+### Important Data Limitation
+
+The provided dataset contains order dates from January 2024 to December 2025 and shipment dates from June 2026 to June 2030. These dates produce unusually long shipping lead times. Therefore, the calculated delay rates and route-efficiency rankings should be treated as provisional analytical outputs rather than verified measures of actual logistics performance.
+
+### Recommendations
+
+1. Verify the shipment dates with the dataset provider.
+2. Establish realistic delay thresholds using validated delivery records or service-level agreements.
+3. Review high-volume routes after the data has been validated.
+4. Use the dashboard for ongoing performance monitoring once reliable data is available.
+
+### Conclusion
+
+The project demonstrates a practical workflow for transforming shipment records into route-level analytics and presenting them through an interactive dashboard. The resulting application supports exploratory analysis and performance comparisons. Validation of the supplied dates is necessary before drawing operational conclusions or recommending real-world logistics changes.
+
+**Technologies:** Python, Pandas, NumPy, Plotly, Matplotlib, Seaborn, Jupyter Notebook, and Streamlit.

@@ -1,0 +1,106 @@
+# Factory-to-Customer Shipping Route Efficiency Analysis for Nassau Candy Distributor
+
+## Abstract
+
+This project analyzes factory-to-customer shipping routes for Nassau Candy Distributor to evaluate shipping performance across customer states, regions, and shipping modes. Using Python, Pandas, Plotly, and Streamlit, the project processes shipment records, calculates shipping lead times, compares route performance, and identifies potential geographic bottlenecks. A dashboard provides interactive filters, key performance indicators, route comparisons, and shipment-level insights. The analysis also highlights data-quality concerns that must be considered when interpreting the results.
+
+## 1. Introduction
+
+Shipping efficiency plays an important role in customer satisfaction, logistics costs, and operational planning. Organizations that distribute products across multiple regions require reliable information about shipment duration, route performance, and delivery delays.
+
+The objective of this project is to analyze shipping records from Nassau Candy Distributor and develop a data-driven approach to comparing factory-to-customer routes. The analysis focuses on shipping lead time, route volume, delay frequency, regional performance, and shipping-mode comparisons.
+
+## 2. Problem Statement
+
+Nassau Candy Distributor requires better visibility into route-level shipping performance. Without consolidated analytics, identifying inefficient routes, comparing shipping modes, and locating geographic bottlenecks can be difficult.
+
+This project addresses these challenges by transforming shipment records into route-level performance metrics and presenting the results through an interactive dashboard.
+
+## 3. Project Objectives
+
+- Calculate shipping lead time for each order.
+- Map products to their respective factories.
+- Analyze factory-to-customer routes at state and regional levels.
+- Compare average lead time and shipment volume across routes.
+- Evaluate delay frequency using a configurable threshold.
+- Compare shipping performance across shipping modes.
+- Develop an interactive Streamlit dashboard for exploring the results.
+
+## 4. Dataset Description
+
+The dataset provided by Unified Mentor contains **10,194 shipment records**. Important fields include Order ID, Order Date, Ship Date, Ship Mode, Customer ID, State/Province, Region, Product Name, Sales, Units, Gross Profit, and Cost.
+
+Product-to-factory mappings were applied using the project documentation. These mappings enabled the creation of factory-to-customer routes for performance analysis.
+
+## 5. Methodology
+
+### 5.1 Data Cleaning and Validation
+
+The dataset was inspected for missing values, duplicate records, date formats, and invalid lead times. Date columns were converted into datetime format, and lead time was calculated as the difference between Ship Date and Order Date.
+
+### 5.2 Feature Engineering
+
+The following features were created:
+
+- **Lead Time:** Number of days between the order date and shipment date.
+- **Factory:** Factory assigned according to the product mapping.
+- **Route:** Combination of factory and customer state.
+- **Delayed:** Boolean indicator based on the selected lead-time threshold.
+
+### 5.3 Route Performance Analysis
+
+Shipment records were grouped by route to calculate shipment volume, average lead time, and lead-time variability. Routes were ranked to identify relatively faster and slower routes within the dataset.
+
+### 5.4 Shipping Mode and Regional Analysis
+
+Shipment performance was grouped by shipping mode and customer region. Average lead time and shipment volume were compared to identify differences across categories.
+
+### 5.5 Dashboard Development
+
+An interactive dashboard was developed using Streamlit and Plotly. It includes performance indicators, route rankings, shipping-mode comparisons, regional analysis, route drill-down, filters, and filtered-data export.
+
+## 6. Results and Discussion
+
+The processed dataset contains 10,194 records, and the route-level analysis contains 196 distinct routes.
+
+A temporary threshold of 1,274 days was used for relative comparison because the supplied dataset contains unusually long calculated lead times. Under this threshold, 4,302 records were classified as delayed, approximately 42.2% of the dataset.
+
+These results must be interpreted cautiously. The original data contains order dates ranging from January 2, 2024, to December 31, 2025, while shipment dates range from June 30, 2026, to June 28, 2030. Consequently, the calculated lead times do not appear representative of normal shipping durations.
+
+The route rankings, delay frequencies, and efficiency scores therefore describe the supplied dataset rather than verified real-world logistics performance.
+
+### 6.1 Factory-to-Customer Route Visualization
+
+The route map illustrates the geographic connections between the five factories and customer locations across the United States. It provides a visual overview of the distribution network and helps explore the geographic spread of factory-to-customer routes. The lines represent approximate geographic connections and should not be interpreted as actual road or transportation paths.
+
+### 6.2 State-Level Shipping Lead Time
+
+The state-level choropleth map compares average calculated shipping lead time across US states. The color differences indicate variation in the recorded lead-time averages between states. This visualization helps identify states for further investigation, particularly where calculated lead times are relatively high.
+
+However, the supplied dataset contains unusually long calculated lead times. Therefore, the map identifies differences in the recorded data rather than confirming actual delivery delays or transportation bottlenecks.
+
+## 7. Limitations
+
+- The supplied shipment dates produce unusually long lead times.
+- The selected delay threshold is a temporary analytical benchmark, not a validated service-level target.
+- Factory-to-customer lines on the map represent approximate geographic connections, not verified road routes.
+- Shipping costs and actual transit costs are not directly available for a reliable cost-time optimization analysis.
+- The results depend on the accuracy of the provided dataset and product-to-factory mappings.
+
+## 8. Recommendations
+
+- Verify the shipment dates with the dataset provider before using the findings for operational decisions.
+- Establish realistic delay thresholds using verified delivery records or documented service-level agreements.
+- Monitor route volume, average lead time, and delay frequency together.
+- Investigate high-volume routes with consistently poor performance once the data is validated.
+- Use the dashboard to support ongoing monitoring and exploratory analysis.
+
+## 9. Conclusion
+
+This project demonstrates how shipment data can be transformed into route-level analytics using Python and an interactive Streamlit dashboard. The application supports route comparisons, regional analysis, shipping-mode evaluation, and shipment-level exploration.
+
+Although the analytical workflow and dashboard have been developed, the unusually long lead times in the provided dataset limit the reliability of operational conclusions. Validating the shipment dates is the essential next step before using the analysis to recommend real-world logistics changes.
+
+## Tools and Technologies
+
+Python, Pandas, NumPy, Plotly, Matplotlib, Seaborn, Jupyter Notebook, and Streamlit.
